@@ -1,0 +1,1154 @@
+/*==============================================================
+Happy Friendship Day Website
+style.css — Part 1
+(Global Styles • Background • Hero • Buttons • Nickname Cards)
+==============================================================*/
+
+/* -------------------- RESET -------------------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #FFF8F0 0%,
+        #FFD6E7 50%,
+        #DCC6FF 100%
+    );
+
+    color:#333;
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+    position:relative;
+}
+
+/* -------------------- SCROLLBAR -------------------- */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#fff;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff8bb2;
+
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff5d92;
+
+}
+
+/* ==========================================================
+BACKGROUND STARS
+========================================================== */
+
+.stars{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-3;
+
+    background-image:
+    radial-gradient(circle,#ffffff 2px,transparent 2px),
+    radial-gradient(circle,#ffffff 1.5px,transparent 1.5px);
+
+    background-size:
+    160px 160px,
+    90px 90px;
+
+    animation:twinkle 7s linear infinite;
+
+    opacity:.45;
+
+}
+
+@keyframes twinkle{
+
+    0%{
+
+        transform:translateY(0);
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        opacity:.8;
+
+    }
+
+    100%{
+
+        transform:translateY(-25px);
+
+        opacity:.4;
+
+    }
+
+}
+
+/* ==========================================================
+FLOATING HEARTS
+========================================================== */
+
+.floating-hearts{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:-2;
+
+}
+
+.floating-hearts::before,
+.floating-hearts::after{
+
+    content:"❤ ❤ ❤ ❤ ❤ ❤ ❤";
+
+    position:absolute;
+
+    width:100%;
+
+    font-size:18px;
+
+    color:rgba(255,255,255,.35);
+
+    animation:floatHearts 26s linear infinite;
+
+}
+
+.floating-hearts::after{
+
+    top:55%;
+
+    animation-duration:32s;
+
+    opacity:.5;
+
+}
+
+@keyframes floatHearts{
+
+    from{
+
+        transform:translateY(100vh);
+
+    }
+
+    to{
+
+        transform:translateY(-120vh);
+
+    }
+
+}
+
+/* ==========================================================
+HERO
+========================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:60px 20px;
+
+    text-align:center;
+
+}
+
+.hero-content{
+
+    max-width:850px;
+
+    background:rgba(255,255,255,.25);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.45);
+
+    border-radius:35px;
+
+    padding:60px 35px;
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.12);
+
+}
+
+.date{
+
+    font-size:1rem;
+
+    color:#7d5470;
+
+    margin-bottom:22px;
+
+}
+
+.hero h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:4rem;
+
+    line-height:1.15;
+
+    margin-bottom:30px;
+
+    color:#5b304d;
+
+}
+
+.hero h1 span{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#d63384;
+
+}
+
+.subtitle{
+
+    font-size:1.25rem;
+
+    line-height:1.9;
+
+    color:#555;
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================================================
+BUTTONS
+========================================================== */
+
+.primary-btn,
+.surprise-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:18px 42px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    border-radius:50px;
+
+    transition:.35s;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+.primary-btn{
+
+    background:#ff5d92;
+
+    color:white;
+
+    box-shadow:
+
+    0 12px 28px rgba(255,93,146,.35);
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 18px 40px rgba(255,93,146,.45);
+
+}
+
+/* ==========================================================
+SECTION HEADINGS
+========================================================== */
+
+section{
+
+    padding:90px 8%;
+
+}
+
+section h2{
+
+    font-family:'Playfair Display',serif;
+
+    text-align:center;
+
+    font-size:2.6rem;
+
+    color:#60344f;
+
+    margin-bottom:60px;
+
+}
+
+/* ==========================================================
+NICKNAME SECTION
+========================================================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.55);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    text-align:center;
+
+    padding:35px 25px;
+
+    transition:.35s;
+
+    border:1px solid rgba(255,255,255,.6);
+
+    box-shadow:
+
+    0 12px 30px rgba(0,0,0,.08);
+
+    font-size:2rem;
+
+}
+
+.card h3{
+
+    margin-top:20px;
+
+    font-size:1.2rem;
+
+    color:#4d2d42;
+
+}
+
+.card:hover{
+
+    transform:
+
+    translateY(-10px)
+    scale(1.03);
+
+    box-shadow:
+
+    0 18px 40px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================================
+UTILITY
+========================================================== */
+
+.hidden{
+
+    display:none;
+
+}
+
+.highlight{
+
+    color:#d63384;
+
+    font-weight:700;
+
+}
+/*==============================================================
+style.css — Part 2
+(Timeline • Letter • Statistics • Promise Section)
+==============================================================*/
+
+
+/* ==========================================================
+TIMELINE SECTION
+========================================================== */
+
+.timeline-section{
+    padding:100px 8%;
+}
+
+.timeline{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:40px;
+}
+
+.timeline-item{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    min-width:120px;
+
+    text-align:center;
+}
+
+.circle{
+
+    width:26px;
+    height:26px;
+
+    border-radius:50%;
+
+    background:#ff5d92;
+
+    border:4px solid #ffffff;
+
+    box-shadow:0 0 18px rgba(255,93,146,.45);
+
+    margin-bottom:15px;
+
+    animation:pulse 2.5s infinite;
+}
+
+.final{
+
+    background:#FFD166;
+}
+
+.line{
+
+    width:80px;
+    height:4px;
+
+    border-radius:10px;
+
+    background:linear-gradient(
+        to right,
+        #ff8bb2,
+        #d8b4fe
+    );
+}
+
+.timeline-item h3{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:#5b304d;
+
+    line-height:1.4;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.25);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+
+/* ==========================================================
+LETTER SECTION
+========================================================== */
+
+.letter-section{
+
+    display:flex;
+    justify-content:center;
+}
+
+.letter{
+
+    max-width:850px;
+
+    background:#fffdf9;
+
+    padding:55px;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.10);
+
+    border:2px solid rgba(255,214,231,.8);
+
+    position:relative;
+}
+
+.letter::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border:1px dashed rgba(255,93,146,.35);
+
+    border-radius:20px;
+
+    pointer-events:none;
+}
+
+.letter h2{
+
+    text-align:left;
+
+    margin-bottom:25px;
+
+    font-family:'Caveat',cursive;
+
+    font-size:3rem;
+
+    color:#b8326d;
+}
+
+.letter p{
+
+    font-family:'Caveat',cursive;
+
+    font-size:2rem;
+
+    line-height:1.7;
+
+    color:#444;
+
+    margin-bottom:20px;
+}
+
+.letter .highlight{
+
+    text-align:center;
+
+    color:#d63384;
+
+    font-weight:bold;
+
+    font-size:2.3rem;
+}
+
+.letter h3{
+
+    text-align:center;
+
+    font-size:3rem;
+
+    margin-top:25px;
+}
+
+
+/* ==========================================================
+STATISTICS
+========================================================== */
+
+.stats-section{
+
+    text-align:center;
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:28px;
+}
+
+.stat{
+
+    background:rgba(255,255,255,.55);
+
+    backdrop-filter:blur(15px);
+
+    padding:35px 20px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.6);
+
+    transition:.35s;
+
+    box-shadow:
+    0 12px 25px rgba(0,0,0,.08);
+}
+
+.stat:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 18px 35px rgba(0,0,0,.12);
+}
+
+.stat span{
+
+    display:block;
+
+    font-size:2.4rem;
+
+    font-weight:700;
+
+    color:#d63384;
+
+    margin-bottom:12px;
+}
+
+.stat p{
+
+    font-size:1rem;
+
+    color:#555;
+
+    font-weight:500;
+}
+
+
+/* ==========================================================
+PROMISE SECTION
+========================================================== */
+
+.promise-section{
+
+    text-align:center;
+
+    padding:120px 8%;
+
+    position:relative;
+}
+
+.promise-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top,#ffffff55,transparent 70%);
+
+    pointer-events:none;
+}
+
+.promise-section h2{
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+    color:#5b304d;
+}
+
+.promise-section p{
+
+    font-size:1.5rem;
+
+    line-height:2;
+
+    color:#555;
+
+    max-width:700px;
+
+    margin:auto;
+}
+/*==============================================================
+style.css — Part 3
+(Surprise • Footer • Ending • Confetti • Responsive Design)
+==============================================================*/
+
+
+/* ==========================================================
+SURPRISE SECTION
+========================================================== */
+
+.surprise{
+
+    text-align:center;
+
+    padding:100px 8%;
+}
+
+.surprise-btn{
+
+    background:linear-gradient(
+        135deg,
+        #ff5d92,
+        #d63384
+    );
+
+    color:#fff;
+
+    box-shadow:0 15px 35px rgba(214,51,132,.35);
+}
+
+.surprise-btn:hover{
+
+    transform:translateY(-6px) scale(1.04);
+
+    box-shadow:0 20px 45px rgba(214,51,132,.45);
+}
+
+#surpriseMessage{
+
+    margin-top:45px;
+
+    animation:fadeUp .8s ease;
+}
+
+#surpriseMessage h2{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:2.5rem;
+
+    color:#d63384;
+}
+
+.emoji{
+
+    margin-top:20px;
+
+    font-size:4rem;
+
+    animation:bounce 2s infinite;
+}
+
+
+/* ==========================================================
+ENDING EASTER EGG
+========================================================== */
+
+.ending{
+
+    padding:120px 8%;
+
+    text-align:center;
+}
+
+#endingMessage{
+
+    max-width:700px;
+
+    margin:auto;
+
+    background:rgba(255,255,255,.45);
+
+    backdrop-filter:blur(15px);
+
+    padding:50px;
+
+    border-radius:28px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.10);
+}
+
+#endingMessage p{
+
+    font-size:1.1rem;
+
+    color:#666;
+
+    margin-bottom:16px;
+}
+
+#endingMessage h2{
+
+    font-size:5rem;
+
+    color:#ff5d92;
+
+    margin:20px 0;
+}
+
+#endingMessage h3{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:2rem;
+
+    color:#5b304d;
+
+    line-height:1.6;
+}
+
+
+/* ==========================================================
+FOOTER
+========================================================== */
+
+footer{
+
+    padding:45px 20px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.35);
+
+    backdrop-filter:blur(12px);
+
+    border-top:1px solid rgba(255,255,255,.5);
+}
+
+footer p{
+
+    margin:12px 0;
+
+    color:#5f4b5b;
+
+    font-size:.95rem;
+}
+
+
+/* ==========================================================
+CONFETTI CANVAS
+========================================================== */
+
+#confetti{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:999;
+}
+
+
+/* ==========================================================
+ANIMATIONS
+========================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes bounce{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================================
+RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+    .hero h1{
+
+        font-size:3rem;
+    }
+
+    .subtitle{
+
+        font-size:1.1rem;
+    }
+
+    section h2{
+
+        font-size:2.2rem;
+    }
+
+    .timeline{
+
+        flex-direction:column;
+    }
+
+    .line{
+
+        width:4px;
+
+        height:45px;
+    }
+
+    .letter{
+
+        padding:40px 30px;
+    }
+
+    .letter p{
+
+        font-size:1.8rem;
+    }
+
+    .promise-section h2{
+
+        font-size:2.5rem;
+    }
+
+    .promise-section p{
+
+        font-size:1.3rem;
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .hero{
+
+        padding:50px 16px;
+    }
+
+    .hero-content{
+
+        padding:45px 22px;
+    }
+
+    .hero h1{
+
+        font-size:2.4rem;
+    }
+
+    .subtitle{
+
+        font-size:1rem;
+
+        line-height:1.8;
+    }
+
+    .primary-btn,
+    .surprise-btn{
+
+        width:100%;
+    }
+
+    .letter{
+
+        padding:35px 22px;
+    }
+
+    .letter h2{
+
+        font-size:2.4rem;
+    }
+
+    .letter p{
+
+        font-size:1.6rem;
+    }
+
+    .letter .highlight{
+
+        font-size:1.9rem;
+    }
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .stat span{
+
+        font-size:2rem;
+    }
+
+    .promise-section{
+
+        padding:90px 7%;
+    }
+
+    .promise-section h2{
+
+        font-size:2.1rem;
+    }
+
+    .promise-section p{
+
+        font-size:1.1rem;
+    }
+
+    #endingMessage{
+
+        padding:35px 20px;
+    }
+
+    #endingMessage h2{
+
+        font-size:4rem;
+    }
+
+    #endingMessage h3{
+
+        font-size:1.5rem;
+    }
+
+}
+
+
+@media(max-width:480px){
+
+    section{
+
+        padding:70px 6%;
+    }
+
+    .hero h1{
+
+        font-size:2rem;
+    }
+
+    .date{
+
+        font-size:.9rem;
+    }
+
+    .subtitle{
+
+        font-size:.95rem;
+    }
+
+    .card{
+
+        padding:28px 18px;
+    }
+
+    .card h3{
+
+        font-size:1rem;
+    }
+
+    .letter h2{
+
+        font-size:2rem;
+    }
+
+    .letter p{
+
+        font-size:1.45rem;
+    }
+
+    .emoji{
+
+        font-size:3rem;
+    }
+
+    footer p{
+
+        font-size:.85rem;
+    }
+
+}
+
+
+/* ==========================================================
+SMOOTH APPEAR ANIMATION
+========================================================== */
+
+.card,
+.timeline-item,
+.letter,
+.stat,
+.promise-section,
+.surprise,
+#endingMessage{
+
+    animation:fadeUp .9s ease both;
+}
